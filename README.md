@@ -11,6 +11,10 @@ Execution thread
 
 https://chatgpt.com/share/67434f05-84d0-800c-9777-1f30a457ad44
 
+Discussion thread
+
+https://github.com/bsc7080gbc/genai_prompt_myshelf/discussions
+
 Initial ask in ChatGPT
 
 I have an idea and I need your thoughts on the approach before building anything. I want to create an interactive game I can use on ChatGPT that I call "organize my life". I will primarily engage it using my voice. The name of my AI is "Nova". In this game, I have a shelf of memories called "MyShelf". There are several boxes on "MyShelf". Some boxes have smaller boxes inside them. These boxes can be considered as categories and sub-categories or classifications and sub-classifications. As the game progresses I will label these boxes. Example could be a box labeled "prescriptions". Another example could be a box labeled "inventory" with smaller boxes inside labeled "living room", "kitchen", bathroom", and so on. At any time I can ask for a list of boxes on "MyShelf" or ask about what boxes are inside a single box. At any time, I can open a box and add items to it. At any time I can I can ask for the contents of a box. Example could be a box called "ToDo", containing "Shopping list", containing a box called "Christmas" which has several ideas for gifts. Then there is a second box in "Shopping list" that is labeled "groceries" which contains grocery items we need. I should be able to add items to the box "Christmas" anytime and similarly for the "groceries" list. I can also get a read out of items in a box.as well as remove items from a box. I can create new boxes which I will be asked if it's a new box or belongs inside an existing box, and what the name of my box should be so we can label the box before storing it on "MyShelf".
