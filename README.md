@@ -11,6 +11,11 @@ Execution thread
 
 https://chatgpt.com/share/67434f05-84d0-800c-9777-1f30a457ad44
 
+Video walkthrough as of November 26, 2024 (see "MyShelf.mp4") 
+note: apologies for background whitenoise. whitenoise box above my head at work grrr. I will do another video on a future revision that hopefully will be better.
+
+https://drive.google.com/drive/folders/13OM0tHaoFX6apV7y5Rvwee4fP0CNA05P?usp=sharing
+
 Discussion thread
 
 https://github.com/bsc7080gbc/genai_prompt_myshelf/discussions
