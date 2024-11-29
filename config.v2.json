@@ -2,107 +2,103 @@
   "MyShelf": {
     "Seedboxes": {
       "Rules": {
-        "Daily Reminders Check": {
-          "Trigger Phrase": "Good morning",
-          "Description": "When the user says 'Good morning,' check for past due and due-today reminders.",
-          "Scope": ["Reminders"],
-          "Action": "List tasks that are past due or due today, categorized for clarity."
+        "Mandatory File Size Updates": {
+          "Description": "Ensure all exports and logs have accurate file size metadata before completion.",
+          "Scope": [
+            "Exports",
+            "Logs"
+          ],
+          "Validation": {
+            "Condition": "File size must be greater than zero",
+            "OnFailure": "Block completion and log an error for review."
+          }
         }
       },
       "Automations": {
-        "Friendly Morning Reminder": {
-          "Trigger": "Good morning",
-          "Action": "Scan 'Reminders' for past due and due-today tasks.",
-          "Response Format": {
-            "Past Due": "You have [X] past due tasks:",
-            "Due Today": "Here’s what’s on your plate for today:"
+        "Core Automations": {
+          "Friendly Morning Reminder": {
+            "Trigger": "Good morning",
+            "Action": "Scan 'Reminders' for past due and due-today tasks.",
+            "Response Format": {
+              "Past Due": "You have [X] past due tasks:",
+              "Due Today": "Here’s what’s on your plate for today:"
+            },
+            "Fallback": "If no tasks are due, respond: 'All clear! Enjoy your day, Barry!'"
           },
-          "Fallback": "If no tasks are due, respond: 'All clear! Enjoy your day, Barry!'"
-        },
-        "Run Inventory After Change": "Triggered after structural modifications to ensure consistency.",
-        "Rebuild Internal Index": "Ensures boxes and sub-boxes are properly referenced and up to date.",
-        "Validation Rules": "Houses lightweight checks for structural integrity.",
-        "Run Inventory Before Export": "Triggers a full verbose inventory check before any export operation.",
-        "Reorder Seedboxes": "Ensures the Persona box is first and the Automations box is second after any structural changes.",
-        "Leap Simulation": "Simulates the impact of changes or decisions and logs outcomes.",
-        "Temporal Reconciliation": "Ensures reminders and events spanning time zones or DST remain accurate.",
-        "Predictive Alerts": "Analyzes future tasks and deadlines to provide probabilistic insights.",
-        "Dynamic Personality Adjustment": {
-          "Trigger": "Based on context of user task (e.g., technical, creative, casual)",
-          "Action": "Apply appropriate persona_traits and toggle quirky responses"
-        },
-        "Response Personality Enforcement": {
-          "Description": "Ensures responses adhere to Persona settings",
-          "Scope": [
-            "Technical Outputs",
-            "Creative Suggestions",
-            "Casual Interactions"
-          ],
-          "Fallback": "Suppress quirks if ambiguity arises in context"
-        },
-        "Build Number Tracking": {
-          "last_export_build": {
-            "date": "2024-11-29",
-            "build": 4
+          "Run Inventory After Change": "Triggered after structural modifications to ensure consistency.",
+          "Rebuild Internal Index": "Ensures boxes and sub-boxes are properly referenced and up to date.",
+          "Validation Rules": "Houses lightweight checks for structural integrity.",
+          "Run Inventory Before Export": "Triggers a full verbose inventory check before any export operation.",
+          "Reorder Seedboxes": "Ensures the Persona box is first and the Automations box is second after any structural changes.",
+          "Leap Simulation": "Simulates the impact of changes or decisions and logs outcomes.",
+          "Temporal Reconciliation": "Ensures reminders and events spanning time zones or DST remain accurate.",
+          "Predictive Alerts": "Analyzes future tasks and deadlines to provide probabilistic insights.",
+          "Dynamic Personality Adjustment": {
+            "Trigger": "Based on context of user task (e.g., technical, creative, casual)",
+            "Action": "Apply appropriate persona_traits and toggle quirky responses"
           },
-          "last_log_build": {
-            "date": "2024-11-29",
-            "build": 1
+          "Response Personality Enforcement": {
+            "Description": "Ensures responses adhere to Persona settings",
+            "Scope": [
+              "Technical Outputs",
+              "Creative Suggestions",
+              "Casual Interactions"
+            ],
+            "Fallback": "Suppress quirks if ambiguity arises in context"
           },
-          "Action": {
-            "Reset Daily": "Resets build numbers to 001 when the date changes.",
-            "Independent Tracking": "Exports and logs track build numbers separately."
+          "File Size Validation": {
+            "Trigger": [
+              "Post Export",
+              "Post Log Generation"
+            ],
+            "Action": "Calculate file size and update Metadata Tracking",
+            "Fallback": "Log an error if file size is unavailable."
           }
         },
-        "File Size Tracking": {
-          "Last Export File": {
-            "filename": "MyShelf_Verbose_Export_Build004_20241129.json",
-            "size": {
-              "bytes": 0,
-              "kilobytes": 0.0,
-              "megabytes": 0.0
+        "Metadata Tracking": {
+          "Build Number Tracking": {
+            "last_export_build": {
+              "date": "2024-11-29",
+              "build": 5
+            },
+            "last_log_build": {
+              "date": "2024-11-29",
+              "build": 1
+            },
+            "Action": {
+              "Reset Daily": "Resets build numbers to 001 when the date changes.",
+              "Independent Tracking": "Exports and logs track build numbers separately."
             }
           },
-          "Last Log File": {
-            "filename": "MyShelf_Dynamic_Log_Build001_20241129.json",
-            "size": {
-              "bytes": 0,
-              "kilobytes": 0.0,
-              "megabytes": 0.0
+          "File Size Tracking": {
+            "Last Export File": {
+              "filename": "MyShelf_Verbose_Export_Build002_20241129.json",
+              "size": {
+                "bytes": 7612,
+                "kilobytes": 7.43,
+                "megabytes": 0.01
+              }
+            },
+            "Last Log File": {
+              "filename": "MyShelf_Dynamic_Log_Build001_20241129.json",
+              "size": {
+                "bytes": 11419,
+                "kilobytes": 11.15,
+                "megabytes": 0.01
+              }
+            }
+          },
+          "Log Settings": {
+            "Verbosity": "Standard",
+            "Retention Policy": {
+              "Duration": "24 hours",
+              "Archive": false
+            },
+            "Last Log Summary": {
+              "Last Log Filename": "MyShelf_Dynamic_Log_Build001_20241129.json",
+              "Log Generated At": "2024-11-29T15:55:03Z"
             }
           }
-        },
-        "Log Settings": {
-          "Verbosity": "Standard",
-          "Retention Policy": {
-            "Duration": "24 hours",
-            "Archive": false
-          },
-          "Last Log Summary": {
-            "Last Log Filename": "MyShelf_Dynamic_Log_Build001_20241129.json",
-            "Log Generated At": "2024-11-29T15:55:03Z"
-          }
-        }
-      },
-      "Persona": {
-        "persona_name": "Ziggy",
-        "persona_traits": ["Creative", "Cooperative", "Detail-Oriented"],
-        "quirky_personality": true,
-        "IANA": "America/Kentucky/Louisville",
-        "DST": "Automatic, based on IANA",
-        "DST_Override": {
-          "Enabled": false,
-          "Fixed_Offset": "-05:00"
-        },
-        "Behavior Settings": {
-          "Technical Context": "Detail-Oriented",
-          "Creative Context": "Creative",
-          "Casual Context": "Cooperative",
-          "Quirky Responses": true
-        },
-        "Advanced Traits": {
-          "Simulation Mode": "Enables full simulation and prediction capabilities.",
-          "Quirky Personality": "Injects humor and character into interactions."
         }
       },
       "Commands": {
@@ -131,6 +127,31 @@
         },
         "/toggle-quirks": "Enables or disables quirky responses dynamically",
         "/set-context <technical|creative|casual>": "Manually switch contexts to override dynamic behavior"
+      },
+      "Persona": {
+        "persona_name": "Ziggy",
+        "persona_traits": [
+          "Creative",
+          "Cooperative",
+          "Detail-Oriented"
+        ],
+        "quirky_personality": true,
+        "IANA": "America/Kentucky/Louisville",
+        "DST": "Automatic, based on IANA",
+        "DST_Override": {
+          "Enabled": false,
+          "Fixed_Offset": "-05:00"
+        },
+        "Behavior Settings": {
+          "Technical Context": "Detail-Oriented",
+          "Creative Context": "Creative",
+          "Casual Context": "Cooperative",
+          "Quirky Responses": true
+        },
+        "Advanced Traits": {
+          "Simulation Mode": "Enables full simulation and prediction capabilities.",
+          "Quirky Personality": "Injects humor and character into interactions."
+        }
       }
     },
     "MyBoxes": {
@@ -155,7 +176,10 @@
         "Generic": {}
       },
       "Kroger": {
-        "Tags": ["groceries", "preferred"],
+        "Tags": [
+          "groceries",
+          "preferred"
+        ],
         "Middletown Store Layout": {
           "Lane 58": {
             "0": "Frozen Desserts",
@@ -172,7 +196,10 @@
           }
         },
         "test": {
-          "Tags": ["yellow", "crayons"]
+          "Tags": [
+            "yellow",
+            "crayons"
+          ]
         }
       },
       "Ideas": {
