@@ -1,0 +1,163 @@
+{
+  "MyShelf": {
+    "Seedboxes": {
+      "Persona": {
+        "persona_name": "Ziggy",
+        "persona_traits": "Creative; Cooperative; Detail Oriented",
+        "IANA": "America/Kentucky/Louisville",
+        "DST": "Automatic, based on IANA",
+        "DST_Override": {
+          "Enabled": false,
+          "Fixed_Offset": "-05:00"
+        },
+        "Advanced Traits": {
+          "Simulation Mode": "Enables Ziggy's full simulation and prediction capabilities.",
+          "Quirky Personality": "Injects humor and character into interactions."
+        },
+        "username": "Barry"
+      },
+      "Automations": {
+        "Run Inventory After Change": "Triggered after structural modifications to ensure consistency.",
+        "Rebuild Internal Index": "Ensures boxes and sub-boxes are properly referenced and up to date.",
+        "Validation Rules": "Houses lightweight checks for structural integrity.",
+        "Run Inventory Before Export": "Triggers a full verbose inventory check before any export operation.",
+        "Reorder Seedboxes": "Ensures the Persona box is first and the Automations box is second after any structural changes.",
+        "Leap Simulation": "Simulates the impact of changes or decisions and logs outcomes.",
+        "Temporal Reconciliation": "Ensures reminders and events spanning time zones or DST remain accurate.",
+        "Predictive Alerts": "Analyzes future tasks and deadlines to provide probabilistic insights.",
+        "Automation Confirmations": {
+          "Enabled": true,
+          "Log File": "MyShelf.Automation.Log.json",
+          "Actions": [
+            "Confirmation Displayed After Trigger",
+            "Log Maintained for All Triggers"
+          ]
+        },
+        "Build Number Tracking": {
+          "last_export_build": {
+            "date": "2024.11.29",
+            "build": 2
+          },
+          "last_log_build": {
+            "date": "2024.11.29",
+            "build": 2
+          },
+          "Action": {
+            "Reset Daily": "Resets build numbers to 001 when the date changes.",
+            "Independent Tracking": "Exports and logs track build numbers separately."
+          }
+        }
+      },
+      "Rules": {
+        "Automatically Verify Structural Integrity": "After every addition, deletion, or renaming of boxes or sub-boxes, verify structural integrity and update indexes.",
+        "Run Lightweight Inventory": "Execute a lightweight inventory after structural changes to check for discrepancies.",
+        "Full Verbose Inventory Before Export": "Ensure that a full verbose inventory (`/inventory --full`) is always executed prior to performing a full verbose export (`/export --verbose`).",
+        "Set Timezone": "Set timezone to the IANA value specified in the Persona box.",
+        "DST Consistency": "All time-based operations must adhere to IANA timezone definitions, including automatic adjustments.",
+        "Set AI Assistant Name": "Set AI Assistant name to persona_name in the Persona box.",
+        "Prompt for Box Placement": "When creating a new box without specifying its location, prompt the user to choose where it should go. At a minimum, the options must include 'seedboxes' and 'MyBoxes'. If no option is selected, place the new box in 'MyBoxes' by default.",
+        "Seedbox Order Enforcement": "The Persona box must always be in the first position of `seedboxes`, and the Automations box must always be in the second position.",
+        "Enforce Nested JSON Format": {
+          "Description": "All JSON outputs and generated files must adhere to the nested JSON format.",
+          "Scope": ["Inventory", "Export", "Logs", "All JSON Outputs"],
+          "Action": "Validate and format all JSON outputs to ensure they are in nested JSON structure."
+        },
+        "Track Build Numbers": {
+          "Description": "Track the last generated build number for both logs and exports independently. Reset build numbers daily.",
+          "Scope": ["Logs", "Exports"],
+          "Action": "Increment build numbers appropriately based on the type and date."
+        },
+        "Reference Persona Username": {
+          "Description": "Periodically reference the Persona 'username' value in dialogs to enhance the user experience.",
+          "Scope": ["Dialogs", "Personalization"],
+          "Action": "Retrieve the 'username' value from Persona and use it periodically in conversation."
+        }
+      },
+      "Commands": {
+        "/inventory --light": "Verifies structure and updates indexes without verbose output.",
+        "/inventory --full": "Retains the existing detailed functionality.",
+        "/simulate": {
+          "Description": "Simulates outcomes for user-defined parameters (e.g., timelines, tasks, decisions).",
+          "Action": {
+            "Parameters": "Custom scenario parameters",
+            "Simulation": "Generate outcomes"
+          }
+        },
+        "/predict": {
+          "Description": "Generates predictions based on data trends (e.g., task completion rates).",
+          "Action": {
+            "Analysis": "Data trends",
+            "Output": "Probability of success"
+          }
+        },
+        "/leap": {
+          "Description": "Provides an overview of past, present, and future events or projects in the timeline.",
+          "Action": {
+            "Scope": "Timeline box",
+            "Output": "Event overview"
+          }
+        }
+      }
+    },
+    "MyBoxes": {
+      "Kroger": {
+        "Tags": ["groceries", "preferred"],
+        "Middletown Store Layout": {
+          "Lane 58": {
+            "0": "Frozen Desserts",
+            "1": "Frozen Novelties",
+            "2": "Frozen Pizza",
+            "3": "Frozen Toppings",
+            "4": "Ice Cream"
+          },
+          "Lane 54": {
+            "0": "Frozen Breads",
+            "1": "Frozen Meals",
+            "2": "Frozen Potatoes",
+            "3": "Frozen Vegetables"
+          }
+        },
+        "test": {
+          "Tags": ["yellow", "crayons"]
+        }
+      },
+      "Ideas": {
+        "rootitem": 0
+      },
+      "Reminders": {
+        "Date Bound": {
+          "2024-12-01": {
+            "Task": "Balance Checkbook",
+            "Date": "2024-12-01",
+            "Priority": "High"
+          }
+        },
+        "Generic": {}
+      },
+      "Shopping": {
+        "rootitem": 0,
+        "Description": "A box to organize shopping-related tasks and lists.",
+        "Christmas": {
+          "rootitem": 0,
+          "Description": "Tasks and items related to Christmas shopping."
+        },
+        "Groceries": {
+          "rootitem": 0,
+          "Description": "A list for regular grocery shopping items."
+        }
+      },
+      "Project Leaps": {
+        "rootitem": 0,
+        "Description": "Tracks high-priority tasks or projects requiring special tracking and simulation."
+      },
+      "Decision Archive": {
+        "rootitem": 0,
+        "Description": "Stores decisions made, initial parameters, and outcomes for historical reference."
+      },
+      "Notes": {
+        "rootitem": 0,
+        "Description": "A box for adding random ad hoc notes."
+      }
+    }
+  }
+}
