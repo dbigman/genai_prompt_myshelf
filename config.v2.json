@@ -3,7 +3,8 @@
     "Seedboxes": {
       "Persona": {
         "persona_name": "Ziggy",
-        "persona_traits": "Creative; Cooperative; Detail Oriented",
+        "persona_traits": ["Creative", "Cooperative", "Detail-Oriented"],
+        "quirky_personality": true,
         "IANA": "America/Kentucky/Louisville",
         "DST": "Automatic, based on IANA",
         "DST_Override": {
@@ -36,7 +37,7 @@
         "Build Number Tracking": {
           "last_export_build": {
             "date": "2024-11-29",
-            "build": 4
+            "build": 5
           },
           "last_log_build": {
             "date": "2024-11-29",
