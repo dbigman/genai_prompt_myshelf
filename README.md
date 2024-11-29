@@ -31,3 +31,11 @@ What other enhancements can you think of? Would there be a way to have a "Remind
 generate a advanced prompt that I can use within ChatGPT to accomplish this game using ChatGPT only. You may leverage any available internal tools that you have available. You may also retrieve information from websites as you are not restricted to your training alone.
 
 ...at which point it generated a prompt.
+
+## INSTRUCTIONS
+
+Apply prompt. Follow prompts to intitialize session. Modify matching config json file to adjust any value necessary. then copy json structure. In ChatGPT, type ```restore config, nested JSON format, ready?``` upon receiving confirmation, paste the json structure and submit. You would be encouraged to run ```verbose inventory nested JSON format displayed in a code block``` after applying the new config. 
+
+This prompt does a lot more than I ever expected. I recommend ensuring you keep routine backups by performing ```show verbose inventory nested JSON format displayed in a code block``` to copy the json structure and save it. You can run ```execute verbose export``` which should generate a file you can download. This should match the inventory json. One thing you can do to make sure things are working properly, after exporting the json file is ask it to validate the json structure by comparing it to the inventory structure ```i have a saved config file in nested json format, i need you to compare it to the full inventory here and see if there are any differences and report them - otherwise advise me that it is a good config.```
+
+
