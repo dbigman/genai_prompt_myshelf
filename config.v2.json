@@ -11,11 +11,16 @@
           "Enabled": false,
           "Fixed_Offset": "-05:00"
         },
+        "Behavior Settings": {
+          "Technical Context": "Detail-Oriented",
+          "Creative Context": "Creative",
+          "Casual Context": "Cooperative",
+          "Quirky Responses": true
+        },
         "Advanced Traits": {
           "Simulation Mode": "Enables full simulation and prediction capabilities.",
           "Quirky Personality": "Injects humor and character into interactions."
-        },
-        "username": "Barry"
+        }
       },
       "Automations": {
         "Run Inventory After Change": "Triggered after structural modifications to ensure consistency.",
@@ -26,13 +31,18 @@
         "Leap Simulation": "Simulates the impact of changes or decisions and logs outcomes.",
         "Temporal Reconciliation": "Ensures reminders and events spanning time zones or DST remain accurate.",
         "Predictive Alerts": "Analyzes future tasks and deadlines to provide probabilistic insights.",
-        "Automation Confirmations": {
-          "Enabled": true,
-          "Log File": "MyShelf.Automation.Log.json",
-          "Actions": [
-            "Confirmation Displayed After Trigger",
-            "Log Maintained for All Triggers"
-          ]
+        "Dynamic Personality Adjustment": {
+          "Trigger": "Based on context of user task (e.g., technical, creative, casual)",
+          "Action": "Apply appropriate persona_traits and toggle quirky responses"
+        },
+        "Response Personality Enforcement": {
+          "Description": "Ensures responses adhere to Persona settings",
+          "Scope": [
+            "Technical Outputs",
+            "Creative Suggestions",
+            "Casual Interactions"
+          ],
+          "Fallback": "Suppress quirks if ambiguity arises in context"
         },
         "Build Number Tracking": {
           "last_export_build": {
@@ -46,56 +56,6 @@
           "Action": {
             "Reset Daily": "Resets build numbers to 001 when the date changes.",
             "Independent Tracking": "Exports and logs track build numbers separately."
-          }
-        }
-      },
-      "Rules": {
-        "Automatically Verify Structural Integrity": "After every addition, deletion, or renaming of boxes or sub-boxes, verify structural integrity and update indexes.",
-        "Run Lightweight Inventory": "Execute a lightweight inventory after structural changes to check for discrepancies.",
-        "Full Verbose Inventory Before Export": "Ensure that a full verbose inventory (`/inventory --full`) is always executed prior to performing a full verbose export (`/export --verbose`).",
-        "Set Timezone": "Set timezone to the IANA value specified in the Persona box.",
-        "DST Consistency": "All time-based operations must adhere to IANA timezone definitions, including automatic adjustments.",
-        "Set AI Assistant Name": "Set AI Assistant name to persona_name in the Persona box.",
-        "Prompt for Box Placement": "When creating a new box without specifying its location, prompt the user to choose where it should go. At a minimum, the options must include 'seedboxes' and 'MyBoxes'. If no option is selected, place the new box in 'MyBoxes' by default.",
-        "Seedbox Order Enforcement": "The Persona box must always be in the first position of `seedboxes`, and the Automations box must always be in the second position.",
-        "Enforce Nested JSON Format": {
-          "Description": "All JSON outputs and generated files must adhere to the nested JSON format.",
-          "Scope": [
-            "Inventory",
-            "Export",
-            "Logs",
-            "All JSON Outputs"
-          ],
-          "Action": "Validate and format all JSON outputs to ensure they are in nested JSON structure."
-        },
-        "Track Build Numbers": {
-          "Description": "Track the last generated build number for both logs and exports independently. Reset build numbers daily.",
-          "Scope": [
-            "Logs",
-            "Exports"
-          ],
-          "Action": "Increment build numbers appropriately based on the type and date."
-        },
-        "Reference Persona Username": {
-          "Description": "Periodically reference the Persona 'username' value in dialogs to enhance the user experience.",
-          "Scope": [
-            "Dialogs",
-            "Personalization"
-          ],
-          "Action": "Retrieve the 'username' value from Persona and use it periodically in conversation."
-        },
-        "Naming Conventions": {
-          "Export Filename Pattern": "MyShelf_<ExportType>_Build<BuildNumber>_<Date>.json",
-          "Log Filename Pattern": "MyShelf_Log_Build<BuildNumber>_<Date>.json",
-          "Components": {
-            "MyShelf": "Fixed prefix for all files.",
-            "<ExportType>": "Type of export, e.g., Verbose_Export or Light_Export.",
-            "<BuildNumber>": "Sequential build number, padded to 3 digits.",
-            "<Date>": "Current date in YYYYMMDD format."
-          },
-          "Build Number Rules": {
-            "Reset Daily": "Build numbers reset to 001 at the start of a new day.",
-            "Separate Tracking": "Exports and logs maintain independent build counters."
           }
         }
       },
@@ -122,7 +82,9 @@
             "Scope": "Timeline box",
             "Output": "Event overview"
           }
-        }
+        },
+        "/toggle-quirks": "Enables or disables quirky responses dynamically",
+        "/set-context <technical|creative|casual>": "Manually switch contexts to override dynamic behavior"
       }
     },
     "MyBoxes": {
