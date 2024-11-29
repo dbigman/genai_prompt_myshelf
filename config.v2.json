@@ -75,6 +75,23 @@
               "megabytes": 0.0
             }
           }
+        },
+        "Friendly Morning Reminder": {
+          "Trigger": "Good morning",
+          "Action": "Scan 'Reminders' for past due and due-today tasks.",
+          "Response Format": {
+            "Past Due": "You have [X] past due tasks:",
+            "Due Today": "Here’s what’s on your plate for today:"
+          },
+          "Fallback": "If no tasks are due, respond: 'All clear! Enjoy your day, Barry!'"
+        }
+      },
+      "Rules": {
+        "Daily Reminders Check": {
+          "Trigger Phrase": "Good morning",
+          "Description": "When the user says 'Good morning,' check for past due and due-today reminders.",
+          "Scope": ["Reminders"],
+          "Action": "List tasks that are past due or due today, categorized for clarity."
         }
       },
       "Commands": {
@@ -138,6 +155,16 @@
       },
       "Reminders": {
         "Date Bound": {
+          "2024-11-28": {
+            "Task": "Balance Checkbook",
+            "Date": "2024-11-28",
+            "Priority": "High"
+          },
+          "2024-11-29": {
+            "Task": "Submit Report",
+            "Date": "2024-11-29",
+            "Priority": "Medium"
+          },
           "2024-12-01": {
             "Task": "Balance Checkbook",
             "Date": "2024-12-01",
