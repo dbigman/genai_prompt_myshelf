@@ -47,15 +47,33 @@
         "Build Number Tracking": {
           "last_export_build": {
             "date": "2024-11-29",
-            "build": 5
+            "build": 2
           },
           "last_log_build": {
             "date": "2024-11-29",
-            "build": 2
+            "build": 0
           },
           "Action": {
             "Reset Daily": "Resets build numbers to 001 when the date changes.",
             "Independent Tracking": "Exports and logs track build numbers separately."
+          }
+        },
+        "File Size Tracking": {
+          "Last Export File": {
+            "filename": "MyShelf_Verbose_Export_Build002_20241129.json",
+            "size": {
+              "bytes": 0,
+              "kilobytes": 0.0,
+              "megabytes": 0.0
+            }
+          },
+          "Last Log File": {
+            "filename": null,
+            "size": {
+              "bytes": 0,
+              "kilobytes": 0.0,
+              "megabytes": 0.0
+            }
           }
         }
       },
