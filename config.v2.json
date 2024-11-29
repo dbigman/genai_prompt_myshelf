@@ -2,7 +2,7 @@
   "MyShelf": {
     "Seedboxes": {
       "Persona": {
-        "persona_name": "[VIRTUAL_PERSONA]",
+        "persona_name": "Ziggy",
         "persona_traits": "Creative; Cooperative; Detail Oriented",
         "IANA": "America/Kentucky/Louisville",
         "DST": "Automatic, based on IANA",
@@ -14,7 +14,7 @@
           "Simulation Mode": "Enables full simulation and prediction capabilities.",
           "Quirky Personality": "Injects humor and character into interactions."
         },
-        "username": "[USERNAME]"
+        "username": "Barry"
       },
       "Automations": {
         "Run Inventory After Change": "Triggered after structural modifications to ensure consistency.",
@@ -35,11 +35,11 @@
         },
         "Build Number Tracking": {
           "last_export_build": {
-            "date": "2024.11.29",
-            "build": 2
+            "date": "2024-11-29",
+            "build": 4
           },
           "last_log_build": {
-            "date": "2024.11.29",
+            "date": "2024-11-29",
             "build": 2
           },
           "Action": {
@@ -59,18 +59,43 @@
         "Seedbox Order Enforcement": "The Persona box must always be in the first position of `seedboxes`, and the Automations box must always be in the second position.",
         "Enforce Nested JSON Format": {
           "Description": "All JSON outputs and generated files must adhere to the nested JSON format.",
-          "Scope": ["Inventory", "Export", "Logs", "All JSON Outputs"],
+          "Scope": [
+            "Inventory",
+            "Export",
+            "Logs",
+            "All JSON Outputs"
+          ],
           "Action": "Validate and format all JSON outputs to ensure they are in nested JSON structure."
         },
         "Track Build Numbers": {
           "Description": "Track the last generated build number for both logs and exports independently. Reset build numbers daily.",
-          "Scope": ["Logs", "Exports"],
+          "Scope": [
+            "Logs",
+            "Exports"
+          ],
           "Action": "Increment build numbers appropriately based on the type and date."
         },
         "Reference Persona Username": {
           "Description": "Periodically reference the Persona 'username' value in dialogs to enhance the user experience.",
-          "Scope": ["Dialogs", "Personalization"],
+          "Scope": [
+            "Dialogs",
+            "Personalization"
+          ],
           "Action": "Retrieve the 'username' value from Persona and use it periodically in conversation."
+        },
+        "Naming Conventions": {
+          "Export Filename Pattern": "MyShelf_<ExportType>_Build<BuildNumber>_<Date>.json",
+          "Log Filename Pattern": "MyShelf_Log_Build<BuildNumber>_<Date>.json",
+          "Components": {
+            "MyShelf": "Fixed prefix for all files.",
+            "<ExportType>": "Type of export, e.g., Verbose_Export or Light_Export.",
+            "<BuildNumber>": "Sequential build number, padded to 3 digits.",
+            "<Date>": "Current date in YYYYMMDD format."
+          },
+          "Build Number Rules": {
+            "Reset Daily": "Build numbers reset to 001 at the start of a new day.",
+            "Separate Tracking": "Exports and logs maintain independent build counters."
+          }
         }
       },
       "Commands": {
@@ -101,7 +126,10 @@
     },
     "MyBoxes": {
       "Kroger": {
-        "Tags": ["groceries", "preferred"],
+        "Tags": [
+          "groceries",
+          "preferred"
+        ],
         "Middletown Store Layout": {
           "Lane 58": {
             "0": "Frozen Desserts",
@@ -118,7 +146,10 @@
           }
         },
         "test": {
-          "Tags": ["yellow", "crayons"]
+          "Tags": [
+            "yellow",
+            "crayons"
+          ]
         }
       },
       "Ideas": {
