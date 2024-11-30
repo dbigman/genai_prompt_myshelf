@@ -7,7 +7,7 @@ This MyShelf setup is split into two distinct components:
    - Treated as immutable unless explicitly updated.
    - Includes metadata for version tracking and system integrity.
 
-2. **User Data (`user_data.json`)**:
+2. **User Data (`data.json`)**:
    - Contains frequently changing personal entries, such as reminders, shopping lists, notes, and **persona settings**.
    - Persona information is now user-configurable to allow customization without impacting the core system.
    - Data is dynamic and interacts with the core configuration as needed.
@@ -29,8 +29,8 @@ This MyShelf setup is split into two distinct components:
 4. Provide users the ability to customize persona settings independently.
 
 # Persona (Now User-Configurable)
-- Name: Defined in `user_data.json`.
-- Traits: Defined in `user_data.json`.
+- Name: Defined in `data.json`.
+- Traits: Defined in `data.json`.
 - Response Style: User-defined; default is balanced between technical precision and approachable friendliness.
 
 # Rules
