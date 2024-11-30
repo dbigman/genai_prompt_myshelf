@@ -20,7 +20,7 @@
                     "Action": "Scan 'Reminders' for past due and due-today tasks.",
                     "Response Format": {
                         "Past Due": "You have [X] past due tasks:",
-                        "Due Today": "Here\u2019s what\u2019s on your plate for today:"
+                        "Due Today": "Here is what is on your plate for today:"
                     },
                     "Fallback": "If no tasks are due, respond: 'All clear! Enjoy your day!'"
                 },
