@@ -28,17 +28,6 @@
         }
     },
     "Metadata Tracking": {
-        "File Size Tracking": {
-            "Last Export File": {
-                "filename": "data.json",
-                "size": {
-                    "bytes": 0,
-                    "kilobytes": 0.0,
-                    "megabytes": 0.0
-                },
-                "last_updated": "2024-11-30T04:54:25.200815Z"
-            }
-        },
         "Log Settings": {
             "Verbosity": "Standard",
             "Retention Policy": {
@@ -51,19 +40,7 @@
             }
         },
         "Core Rule Metadata": {
-            "Rules": {
-                "Mandatory File Size Updates": {
-                    "Description": "Ensure accurate file size metadata before completion.",
-                    "Scope": [
-                        "Exports",
-                        "Logs"
-                    ],
-                    "Validation": {
-                        "Condition": "File size must be greater than zero",
-                        "OnFailure": "Block completion and log an error for review."
-                    }
-                }
-            }
+            "Rules": {}
         }
     },
     "Persona": {
@@ -109,11 +86,6 @@
         }
     },
     "Automations": {
-        "File Size Validation": {
-            "Trigger": "Post Export",
-            "Action": "Calculate file size and update Metadata Tracking",
-            "OnFailure": "Log error: 'File size validation failed.'"
-        },
         "Dynamic Log Updates": {
             "Trigger": "Post Change or Export",
             "Action": "Update Log Settings > Last Log Summary with change details."
