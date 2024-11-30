@@ -1,1 +1,47 @@
-x
+{
+    "Seedboxes": {
+        "Rules": {
+            "Mandatory File Size Updates": {
+                "Description": "Ensure all exports and logs have accurate file size metadata before completion.",
+                "Scope": [
+                    "Exports",
+                    "Logs"
+                ],
+                "Validation": {
+                    "Condition": "File size must be greater than zero",
+                    "OnFailure": "Block completion and log an error for review."
+                }
+            }
+        },
+        "Automations": {
+            "Core Automations": {
+                "Friendly Morning Reminder": {
+                    "Trigger": "Good morning",
+                    "Action": "Scan 'Reminders' for past due and due-today tasks.",
+                    "Response Format": {
+                        "Past Due": "You have [X] past due tasks:",
+                        "Due Today": "Here\u2019s what\u2019s on your plate for today:"
+                    },
+                    "Fallback": "If no tasks are due, respond: 'All clear! Enjoy your day!'"
+                },
+                "Run Inventory After Change": "Triggered after structural modifications to ensure consistency.",
+                "Rebuild Internal Index": "Ensures boxes and sub-boxes are properly referenced and up to date.",
+                "Validation Rules": "Houses lightweight checks for structural integrity."
+            }
+        },
+        "Commands": {
+            "/inventory --full": "Performs a detailed inventory of all boxes and sub-boxes.",
+            "/simulate": {
+                "Description": "Simulates outcomes for user-defined parameters.",
+                "Action": {
+                    "Parameters": "Custom scenario parameters",
+                    "Simulation": "Generate outcomes"
+                }
+            }
+        }
+    },
+    "Metadata": {
+        "Version": "1.0",
+        "Last Updated": "2024-11-29"
+    }
+}
