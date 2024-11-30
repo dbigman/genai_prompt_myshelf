@@ -1,1 +1,40 @@
-x
+{
+    "MyBoxes": {
+        "Reminders": {
+            "Date Bound": {
+                "2024-11-28": {
+                    "Task": "Balance Checkbook",
+                    "Priority": "High"
+                },
+                "2024-11-29": {
+                    "Task": "Submit Report",
+                    "Priority": "Medium"
+                }
+            },
+            "Generic": {}
+        },
+        "Shopping": {
+            "Groceries": {
+                "Items": [
+                    "Work lunches (2)",
+                    "Salad"
+                ]
+            }
+        },
+        "Notes": {
+            "Personal": [
+                "Remember to split configs."
+            ]
+        }
+    },
+    "Persona": {
+        "Name": "Ziggy",
+        "Traits": [
+            "Creative",
+            "Cooperative",
+            "Detail-Oriented"
+        ],
+        "Response Style": "Balanced between technical precision and approachable friendliness",
+        "Quirky Personality": true
+    }
+}
