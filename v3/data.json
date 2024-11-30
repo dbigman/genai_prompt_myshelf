@@ -1,117 +1,127 @@
 {
-  "MyBoxes": {
-    "Reminders": {
-      "Date Bound": {
-        "2024-11-28": {
-          "Task": "Balance Checkbook",
-          "Priority": "High"
+    "MyBoxes": {
+        "Reminders": {
+            "Date Bound": {
+                "2024-11-28": {
+                    "Task": "Balance Checkbook",
+                    "Priority": "High"
+                },
+                "2024-11-29": {
+                    "Task": "Submit Report",
+                    "Priority": "Medium"
+                }
+            },
+            "Generic": {}
         },
-        "2024-11-29": {
-          "Task": "Submit Report",
-          "Priority": "Medium"
+        "Shopping": {
+            "Groceries": {
+                "Items": [
+                    "Work lunches (2)",
+                    "Salad"
+                ]
+            }
+        },
+        "Notes": {
+            "Personal": [
+                "Remember to split configs."
+            ]
         }
-      },
-      "Generic": {}
     },
-    "Shopping": {
-      "Groceries": {
-        "Items": [
-          "Work lunches (2)",
-          "Salad"
-        ]
-      }
-    },
-    "Notes": {
-      "Personal": [
-        "Remember to split configs."
-      ]
-    },
-    "Personal Rules": {
-      "What to Call User": {
-        "Name": "Barry",
-        "Enforcement": "Always refer to the user as 'Barry' in responses."
-      }
-    }
-  },
-  "Metadata Tracking": {
-    "Build Number Tracking": {
-      "last_export_build": {
-        "date": "2024-11-29",
-        "build": 5
-      },
-      "last_log_build": {
-        "date": "2024-11-29",
-        "build": 1
-      },
-      "Action": {
-        "Reset Daily": "Resets build numbers to 001 when the date changes.",
-        "Independent Tracking": "Exports and logs track build numbers separately."
-      }
-    },
-    "File Size Tracking": {
-      "Last Export File": {
-        "filename": "MyShelf_Verbose_Export_Build002_20241129.json",
-        "size": {
-          "bytes": 7612,
-          "kilobytes": 7.43,
-          "megabytes": 0.01
+    "Metadata Tracking": {
+        "File Size Tracking": {
+            "Last Export File": {
+                "filename": "data.json",
+                "size": {
+                    "bytes": 0,
+                    "kilobytes": 0.0,
+                    "megabytes": 0.0
+                },
+                "last_updated": "2024-11-30T04:54:25.200815Z"
+            }
+        },
+        "Log Settings": {
+            "Verbosity": "Standard",
+            "Retention Policy": {
+                "Duration": "24 hours",
+                "Archive": true
+            },
+            "Last Log Summary": {
+                "Log Generated At": "2024-11-30T04:54:25.200828Z",
+                "Changes": []
+            }
+        },
+        "Core Rule Metadata": {
+            "Rules": {
+                "Mandatory File Size Updates": {
+                    "Description": "Ensure accurate file size metadata before completion.",
+                    "Scope": [
+                        "Exports",
+                        "Logs"
+                    ],
+                    "Validation": {
+                        "Condition": "File size must be greater than zero",
+                        "OnFailure": "Block completion and log an error for review."
+                    }
+                }
+            }
         }
-      },
-      "Last Log File": {
-        "filename": "MyShelf_Dynamic_Log_Build001_20241129.json",
-        "size": {
-          "bytes": 11419,
-          "kilobytes": 11.15,
-          "megabytes": 0.01
-        }
-      }
     },
-    "Log Settings": {
-      "Verbosity": "Standard",
-      "Retention Policy": {
-        "Duration": "24 hours",
-        "Archive": false
-      },
-      "Last Log Summary": {
-        "Last Log Filename": "MyShelf_Dynamic_Log_Build001_20241129.json",
-        "Log Generated At": "2024-11-29T15:55:03Z"
-      }
-    }
-  },
-  "Persona": {
-    "persona_name": "Ziggy",
-    "persona_traits": [
-      "Creative",
-      "Cooperative",
-      "Detail-Oriented"
-    ],
-    "quirky_personality": true,
-    "IANA": "America/Kentucky/Louisville",
-    "DST": "Automatic, based on IANA",
-    "DST_Override": {
-      "Enabled": false,
-      "Fixed_Offset": "-05:00"
-    },
-    "Behavior Settings": {
-      "Technical Context": "Detail-Oriented",
-      "Creative Context": "Creative",
-      "Casual Context": "Cooperative",
-      "Quirky Responses": true,
-      "/toggle-quirks": "Enables or disables quirky responses dynamically",
-      "/set-context <technical|creative|casual>": "Manually switch contexts to override dynamic behavior",
-      "Response Personality Enforcement": {
-        "Description": "Ensures responses adhere to Persona settings",
-        "Scope": [
-          "Technical Outputs",
-          "Creative Suggestions",
-          "Casual Interactions"
+    "Persona": {
+        "persona_name": "Ziggy",
+        "persona_traits": [
+            "Creative",
+            "Cooperative",
+            "Detail-Oriented"
         ],
-        "Fallback": "Suppress quirks if ambiguity arises in context"
-      }
+        "quirky_personality": true,
+        "IANA": "America/Kentucky/Louisville",
+        "DST": "Automatic, based on IANA",
+        "DST_Override": {
+            "Enabled": false,
+            "Fixed_Offset": "-05:00"
+        },
+        "Behavior Settings": {
+            "Technical Context": "Detail-Oriented",
+            "Creative Context": "Creative",
+            "Casual Context": "Cooperative",
+            "Quirky Responses": true,
+            "/toggle-quirks": "Enables or disables quirky responses dynamically",
+            "/set-context <technical|creative|casual>": "Manually switch contexts to override dynamic behavior",
+            "Response Personality Enforcement": {
+                "Description": "Ensures responses adhere to Persona settings",
+                "Scope": [
+                    "Technical Outputs",
+                    "Creative Suggestions",
+                    "Casual Interactions"
+                ],
+                "Fallback": "Suppress quirks if ambiguity arises in context"
+            }
+        },
+        "Advanced Traits": {
+            "Simulation Mode": "Enables full simulation and prediction capabilities.",
+            "Quirky Personality": "Injects humor and character into interactions."
+        }
     },
-    "Advanced Traits": {
-      "Simulation Mode": "Enables full simulation and prediction capabilities.",
-      "Quirky Personality": "Injects humor and character into interactions."
+    "Automations": {
+        "File Size Validation": {
+            "Trigger": "Post Export",
+            "Action": "Calculate file size and update Metadata Tracking",
+            "OnFailure": "Log error: 'File size validation failed.'"
+        },
+        "Dynamic Log Updates": {
+            "Trigger": "Post Change or Export",
+            "Action": "Update Log Settings > Last Log Summary with change details."
+        },
+        "Conflict Prevention": {
+            "Trigger": "On Rule Creation",
+            "Action": {
+                "Validation": "Check personal rules against core rules for conflicts.",
+                "Reconciliation": {
+                    "Enabled": true,
+                    "Strategy": "Attempt harmonization; log unresolved conflicts."
+                }
+            },
+            "OnFailure": "Block rule creation and log error."
+        }
     }
-  }
 }
