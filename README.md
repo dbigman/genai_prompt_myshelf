@@ -1,24 +1,10 @@
 # genai_prompt_myshelf
+
 MyShelf is an experiment to create a GenAI utility to track reminders, memories, random adhoc information, shopping lists, and more.
 
 Inspired by another thread around the idea of using voice chat as partner to track things, I wondered if we turned it somewhat into a game, a useful utility if it had rules to the game. This was what it came up with.
 
-Design thread
-
-https://chatgpt.com/share/674350df-53e0-800c-9cb4-7cecc8ed9a5e
-
-Execution thread
-
-https://chatgpt.com/share/67434f05-84d0-800c-9777-1f30a457ad44
-
-Video walkthrough as of November 26, 2024 (see "MyShelf.mp4") 
-note: apologies for background whitenoise. whitenoise box above my head at work grrr. I will do another video on a future revision that hopefully will be better.
-
-https://drive.google.com/drive/folders/13OM0tHaoFX6apV7y5Rvwee4fP0CNA05P?usp=sharing
-
-Discussion thread
-
-https://github.com/bsc7080gbc/genai_prompt_myshelf/discussions
+# How our story began
 
 Initial ask in ChatGPT
 
@@ -30,12 +16,21 @@ What other enhancements can you think of? Would there be a way to have a "Remind
 
 generate a advanced prompt that I can use within ChatGPT to accomplish this game using ChatGPT only. You may leverage any available internal tools that you have available. You may also retrieve information from websites as you are not restricted to your training alone.
 
-...at which point it generated a prompt which is prompt.v0 - later after working with it more, it evolve to v1 and more recently to a v2.
+...at which point it generated a prompt which is prompt.v0 - later after working with it more, it evolve to v1 > v2 > v3.
 
-## INSTRUCTIONS
+## Design thread
 
-Apply prompt. Follow prompts to intitialize session. Modify matching config json file to adjust any value necessary. then copy json structure. In ChatGPT, type ```restore config, nested JSON format, ready?``` upon receiving confirmation, paste the json structure and submit. You would be encouraged to run ```verbose inventory nested JSON format displayed in a code block``` after applying the new config. 
+https://chatgpt.com/share/674350df-53e0-800c-9cb4-7cecc8ed9a5e
 
-This prompt does a lot more than I ever expected. I recommend ensuring you keep routine backups by performing ```show verbose inventory nested JSON format displayed in a code block``` to copy the json structure and save it. You can run ```execute verbose export``` which should generate a file you can download. This should match the inventory json. One thing you can do to make sure things are working properly, after exporting the json file is ask it to validate the json structure by comparing it to the inventory structure ```i have a saved config file in nested json format, i need you to compare it to the full inventory here and see if there are any differences and report them - otherwise advise me that it is a good config.```
+## Execution thread
 
+https://chatgpt.com/share/67434f05-84d0-800c-9777-1f30a457ad44
 
+## Video walkthrough as of November 26, 2024 (see "MyShelf.mp4") 
+note: apologies for background whitenoise. whitenoise box above my head at work grrr. I will do another video on a future revision that hopefully will be better.
+
+https://drive.google.com/drive/folders/13OM0tHaoFX6apV7y5Rvwee4fP0CNA05P?usp=sharing
+
+## Discussion thread
+
+https://github.com/bsc7080gbc/genai_prompt_myshelf/discussions
