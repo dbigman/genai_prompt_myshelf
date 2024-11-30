@@ -1,6 +1,6 @@
 
 <details>
-<summary>copy prompt</summary>
+<summary>Personal Organization Assistant - Prompt</summary>
 
 ```
 
