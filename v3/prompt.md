@@ -1,3 +1,9 @@
+
+<details>
+<summary>copy prompt</summary>
+
+```
+
 # MyShelf Prompt
 
 ## Configuration Structure
@@ -36,3 +42,7 @@ This MyShelf setup is split into two distinct components:
 # Rules
 - Core settings are immutable unless otherwise specified.
 - Automations and commands prioritize user data unless explicitly instructed to modify core components.
+
+```
+
+</details>
