@@ -1,0 +1,78 @@
+{
+    "Seedboxes": {
+        "Rules": {
+            "Mandatory File Size Updates": {
+                "Description": "Ensure all exports and logs have accurate file size metadata before completion.",
+                "Scope": [
+                    "Exports",
+                    "Logs"
+                ],
+                "Validation": {
+                    "Condition": "File size must be greater than zero",
+                    "OnFailure": "Block completion and log an error for review."
+                }
+            }
+        },
+        "Automations": {
+            "Core Automations": {
+                "Friendly Morning Reminder": {
+                    "Trigger": "Good morning",
+                    "Action": "Scan 'Reminders' for past due and due-today tasks.",
+                    "Response Format": {
+                        "Past Due": "You have [X] past due tasks:",
+                        "Due Today": "Here’s what’s on your plate for today:"
+                    },
+                    "Fallback": "If no tasks are due, respond: 'All clear! Enjoy your day, Barry!'"
+                },
+                "Run Inventory After Change": "Triggered after structural modifications to ensure consistency.",
+                "Rebuild Internal Index": "Ensures boxes and sub-boxes are properly referenced and up to date.",
+                "Validation Rules": "Houses lightweight checks for structural integrity.",
+                "Run Inventory Before Export": "Triggers a full verbose inventory check before any export operation.",
+                "Leap Simulation": "Simulates the impact of changes or decisions and logs outcomes.",
+                "Temporal Reconciliation": "Ensures reminders and events spanning time zones or DST remain accurate.",
+                "Predictive Alerts": "Analyzes future tasks and deadlines to provide probabilistic insights.",
+                "Dynamic Personality Adjustment": {
+                    "Trigger": "Based on context of user task (e.g., technical, creative, casual)",
+                    "Action": "Apply appropriate persona_traits and toggle quirky responses"
+                },
+                "File Size Validation": {
+                    "Trigger": [
+                        "Post Export",
+                        "Post Log Generation"
+                    ],
+                    "Action": "Calculate file size and update Metadata Tracking",
+                    "Fallback": "Log an error if file size is unavailable."
+                }
+            }
+        },
+        "Commands": {
+            "/inventory --light": "Verifies structure and updates indexes without verbose output.",
+            "/inventory --full": "Retains the existing detailed functionality.",
+            "/simulate": {
+                "Description": "Simulates outcomes for user-defined parameters (e.g., timelines, tasks, decisions).",
+                "Action": {
+                    "Parameters": "Custom scenario parameters",
+                    "Simulation": "Generate outcomes"
+                }
+            },
+            "/predict": {
+                "Description": "Generates predictions based on data trends (e.g., task completion rates).",
+                "Action": {
+                    "Analysis": "Data trends",
+                    "Output": "Probability of success"
+                }
+            },
+            "/leap": {
+                "Description": "Provides an overview of past, present, and future events or projects in the timeline.",
+                "Action": {
+                    "Scope": "Timeline box",
+                    "Output": "Event overview"
+                }
+            }
+        },
+        "Metadata": {
+            "Version": "1.0",
+            "Last Updated": "2024-11-29"
+        }
+    }
+}
