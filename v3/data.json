@@ -27,14 +27,86 @@
             ]
         }
     },
-    "Persona": {
-        "Name": "Ziggy",
-        "Traits": [
-            "Creative",
-            "Cooperative",
-            "Detail-Oriented"
+            "Metadata Tracking": {
+          "Build Number Tracking": {
+            "last_export_build": {
+              "date": "2024-11-29",
+              "build": 5
+            },
+            "last_log_build": {
+              "date": "2024-11-29",
+              "build": 1
+            },
+            "Action": {
+              "Reset Daily": "Resets build numbers to 001 when the date changes.",
+              "Independent Tracking": "Exports and logs track build numbers separately."
+            }
+          },
+          "File Size Tracking": {
+            "Last Export File": {
+              "filename": "MyShelf_Verbose_Export_Build002_20241129.json",
+              "size": {
+                "bytes": 7612,
+                "kilobytes": 7.43,
+                "megabytes": 0.01
+              }
+            },
+            "Last Log File": {
+              "filename": "MyShelf_Dynamic_Log_Build001_20241129.json",
+              "size": {
+                "bytes": 11419,
+                "kilobytes": 11.15,
+                "megabytes": 0.01
+              }
+            }
+          },
+          "Log Settings": {
+            "Verbosity": "Standard",
+            "Retention Policy": {
+              "Duration": "24 hours",
+              "Archive": false
+            },
+            "Last Log Summary": {
+              "Last Log Filename": "MyShelf_Dynamic_Log_Build001_20241129.json",
+              "Log Generated At": "2024-11-29T15:55:03Z"
+            }
+          }
+        }
+      },
+
+      "Persona": {
+        "persona_name": "Ziggy",
+        "persona_traits": [
+          "Creative",
+          "Cooperative",
+          "Detail-Oriented"
         ],
-        "Response Style": "Balanced between technical precision and approachable friendliness",
-        "Quirky Personality": true
-    }
-}
+        "quirky_personality": true,
+        "IANA": "America/Kentucky/Louisville",
+        "DST": "Automatic, based on IANA",
+        "DST_Override": {
+          "Enabled": false,
+          "Fixed_Offset": "-05:00"
+        },
+        "Behavior Settings": {
+          "Technical Context": "Detail-Oriented",
+          "Creative Context": "Creative",
+          "Casual Context": "Cooperative",
+          "Quirky Responses": true,
+        "/toggle-quirks": "Enables or disables quirky responses dynamically",
+        "/set-context <technical|creative|casual>": "Manually switch contexts to override dynamic behavior"
+               "Response Personality Enforcement": {
+            "Description": "Ensures responses adhere to Persona settings",
+            "Scope": [
+              "Technical Outputs",
+              "Creative Suggestions",
+              "Casual Interactions"
+            ],
+            "Fallback": "Suppress quirks if ambiguity arises in context"
+          },
+                    },
+        "Advanced Traits": {
+          "Simulation Mode": "Enables full simulation and prediction capabilities.",
+          "Quirky Personality": "Injects humor and character into interactions."
+        }
+      }
