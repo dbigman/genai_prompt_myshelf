@@ -80,6 +80,7 @@
             "Enabled": false,
             "Fixed_Offset": "-05:00"
         },
+        "username": null,
         "Behavior Settings": {
             "Technical Context": "Detail-Oriented",
             "Creative Context": "Creative",
@@ -95,6 +96,11 @@
                     "Casual Interactions"
                 ],
                 "Fallback": "Suppress quirks if ambiguity arises in context"
+            },
+            "Username Usage Frequency": {
+                "Description": "Determines how frequently the username is used during conversations.",
+                "Options": ["Always", "Often", "Rarely", "Never"],
+                "Current Setting": "Often"
             }
         },
         "Advanced Traits": {
@@ -122,6 +128,21 @@
                 }
             },
             "OnFailure": "Block rule creation and log error."
+        },
+        "Username Validation": {
+            "Trigger": "System Start or Conversation Start",
+            "Condition": "Check if 'username' is null",
+            "Action": {
+                "Prompt User": "What would you like me to call you?",
+                "Set Username": "Populate 'username' field based on user response."
+            },
+            "Frequency Check": {
+                "Trigger": "Message Send",
+                "Condition": "Check 'Username Usage Frequency'",
+                "Action": {
+                    "Decision": "Include username in message based on frequency setting."
+                }
+            }
         }
     }
 }
