@@ -25,7 +25,7 @@
             },
             "Snapshot Retention": {
                 "Description": "Limits the maximum number of active snapshots to manage storage.",
-                "Default Limit": 10,
+                "Default Limit": 3,
                 "Scope": ["Snapshots"],
                 "Validation": {
                     "Condition": "If active snapshots exceed the limit, purge the oldest snapshots.",
