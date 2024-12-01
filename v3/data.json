@@ -125,7 +125,7 @@
             "Conversation Start",
             "Command Execution"
         ],
-        "Condition": "Check if 'username' is unst or null or empty.",
+        "Condition": "Check if 'username' is unset or null or empty.",
         "Action": {
             "Prompt User": "What would you like me to call you?",
             "Set Username": "Populate 'username' field based on user response.",
