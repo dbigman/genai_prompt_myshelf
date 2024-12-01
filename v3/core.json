@@ -11,6 +11,29 @@
                     "Condition": "File size must be greater than zero",
                     "OnFailure": "Block completion and log an error for review."
                 }
+            },
+            "Snapshot Validation": {
+                "Description": "Ensure snapshots align with the core rules and schema.",
+                "Scope": [
+                    "User Data",
+                    "Metadata"
+                ],
+                "Validation": {
+                    "Condition": "Required keys must exist (e.g., Reminders, Metadata).",
+                    "OnFailure": "Block restoration and log discrepancies for user review."
+                }
+            },
+            "Snapshot Retention": {
+                "Description": "Limits the maximum number of active snapshots to manage storage.",
+                "Default Limit": 10,
+                "Scope": ["Snapshots"],
+                "Validation": {
+                    "Condition": "If active snapshots exceed the limit, purge the oldest snapshots.",
+                    "OnExceed": "Automatically remove the oldest snapshot until the limit is met."
+                },
+                "Commands": {
+                    "/set-snapshot-limit <number>": "Allows users to dynamically change the snapshot limit."
+                }
             }
         },
         "Automations": {
@@ -24,30 +47,44 @@
                     },
                     "Fallback": "If no tasks are due, respond: 'All clear! Enjoy your day, Barry!'"
                 },
-                "Run Inventory After Change": "Triggered after structural modifications to ensure consistency.",
-                "Rebuild Internal Index": "Ensures boxes and sub-boxes are properly referenced and up to date.",
-                "Validation Rules": "Houses lightweight checks for structural integrity.",
-                "Run Inventory Before Export": "Triggers a full verbose inventory check before any export operation.",
-                "Leap Simulation": "Simulates the impact of changes or decisions and logs outcomes.",
-                "Temporal Reconciliation": "Ensures reminders and events spanning time zones or DST remain accurate.",
-                "Predictive Alerts": "Analyzes future tasks and deadlines to provide probabilistic insights.",
-                "Dynamic Personality Adjustment": {
-                    "Trigger": "Based on context of user task (e.g., technical, creative, casual)",
-                    "Action": "Apply appropriate persona_traits and toggle quirky responses"
+                "Event-Triggered Snapshots": {
+                    "Trigger": "Any significant user action (e.g., /mkdir, /mv, /chmod).",
+                    "Action": "Create a new snapshot and save it to memory.",
+                    "Fallback": "Log an error if snapshot creation fails."
                 },
-                "File Size Validation": {
+                "Timer-Driven Snapshots": {
+                    "Trigger": "10 minutes of user inactivity.",
+                    "Action": "Create a snapshot automatically after the timer expires.",
+                    "Fallback": "Reset timer on user activity."
+                },
+                "Session Milestone Snapshots": {
                     "Trigger": [
-                        "Post Export",
-                        "Post Log Generation"
+                        "Session Start",
+                        "Session End"
                     ],
-                    "Action": "Calculate file size and update Metadata Tracking",
-                    "Fallback": "Log an error if file size is unavailable."
+                    "Action": "Create a snapshot at the beginning and end of each session.",
+                    "Fallback": "Log errors if snapshot creation fails."
+                },
+                "Snapshot Retention Automation": {
+                    "Trigger": "After snapshot creation (manual or automated).",
+                    "Action": "Check snapshot count against the limit and purge if necessary.",
+                    "Fallback": "Log an error if the purge process fails."
                 }
             }
         },
         "Commands": {
-            "/inventory --light": "Verifies structure and updates indexes without verbose output.",
-            "/inventory --full": "Retains the existing detailed functionality.",
+            "/inventory --light": {
+                "Description": "Verifies structure and updates indexes without verbose output.",
+                "Action": {
+                    "Base": "Auto-Generated Placeholder Action"
+                }
+            },
+            "/inventory --full": {
+                "Description": "Retains the existing detailed functionality.",
+                "Action": {
+                    "Base": "Auto-Generated Placeholder Action"
+                }
+            },
             "/simulate": {
                 "Description": "Simulates outcomes for user-defined parameters (e.g., timelines, tasks, decisions).",
                 "Action": {
@@ -68,11 +105,29 @@
                     "Scope": "Timeline box",
                     "Output": "Event overview"
                 }
+            },
+            "/save": {
+                "Description": "Manually create a snapshot of the current session.",
+                "Action": "Save user data and metadata as a snapshot.",
+                "Options": {
+                    "--label <name>": "Assign a custom label to the snapshot.",
+                    "--scope <all | named-nodes>": "Scope of snapshot"
+                }
+            },
+            "/restore": {
+                "Description": "Restore user data from a specific snapshot.",
+                "Options": {
+                    "--latest": "Restore the most recent snapshot.",
+                    "--snapshot <id>": "Restore a snapshot by its unique ID."
+                },
+                "Action": "Validate and apply the snapshot to the current session.",
+                "Fallback": "Notify the user of conflicts or errors during restoration."
             }
-        },
-        "Metadata": {
-            "Version": "1.0",
-            "Last Updated": "2024-11-29"
         }
+    },
+    "Metadata": {
+        "Version": "1.2",
+        "Last Updated": "2024-12-01",
+        "Description": "Core configuration for MyShelf. This file contains immutable rules and foundational automations."
     }
 }

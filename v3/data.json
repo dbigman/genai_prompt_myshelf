@@ -16,8 +16,7 @@
         "Shopping": {
             "Groceries": {
                 "Items": [
-                    "Work lunches (2)",
-                    "Salad"
+                    "Work lunches (2)"
                 ]
             }
         },
@@ -32,16 +31,29 @@
             "Verbosity": "Standard",
             "Retention Policy": {
                 "Duration": "24 hours",
-                "Archive": true
+                "Archive": false
             },
-            "Last Log Summary": {
-                "Log Generated At": "2024-11-30T04:54:25.200828Z",
-                "Changes": []
-            }
-        },
-        "Core Rule Metadata": {
-            "Rules": {}
+            "Change Log": [
+                {
+                    "timestamp": "2024-11-30T12:05:00Z",
+                    "action": "Created snapshot '001' after user action '/mkdir Shopping/NewCategory'."
+                },
+                {
+                    "timestamp": "2024-11-30T12:15:00Z",
+                    "action": "Created snapshot '002' due to inactivity timer expiration."
+                }
+            ]
         }
+    },
+    "Snapshots": {
+        "Active": [
+            {
+                "snapshot_id": "snapshot_20241201T030854940767",
+                "timestamp": "2024-12-01T03:08:54.940767",
+                "label": "Snapshot 1 (Default)"
+            }
+        ],
+        "Archived": []
     },
     "Persona": {
         "persona_name": "Ziggy",
@@ -57,7 +69,7 @@
             "Enabled": false,
             "Fixed_Offset": "-05:00"
         },
-        "username": null,
+        "username": "Barry",
         "Behavior Settings": {
             "Technical Context": "Detail-Oriented",
             "Creative Context": "Creative",
@@ -76,7 +88,12 @@
             },
             "Username Usage Frequency": {
                 "Description": "Determines how frequently the username is used during conversations.",
-                "Options": ["Always", "Often", "Rarely", "Never"],
+                "Options": [
+                    "Always",
+                    "Often",
+                    "Rarely",
+                    "Never"
+                ],
                 "Current Setting": "Often"
             }
         },
@@ -87,33 +104,45 @@
     },
     "Automations": {
         "Dynamic Log Updates": {
-            "Trigger": "Post Change or Export",
+            "Trigger": "Post Change",
             "Action": "Update Log Settings > Last Log Summary with change details."
+        }
+    },
+    "Conflict Prevention": {
+        "Trigger": "On Rule Creation",
+        "Action": {
+            "Validation": "Check personal rules against core rules for conflicts.",
+            "Reconciliation": {
+                "Enabled": true,
+                "Strategy": "Attempt harmonization; log unresolved conflicts."
+            }
         },
-        "Conflict Prevention": {
-            "Trigger": "On Rule Creation",
-            "Action": {
-                "Validation": "Check personal rules against core rules for conflicts.",
-                "Reconciliation": {
-                    "Enabled": true,
-                    "Strategy": "Attempt harmonization; log unresolved conflicts."
-                }
+        "OnFailure": "Block rule creation and log error."
+    },
+    "Username Validation": {
+        "Trigger": [
+            "System Start",
+            "Conversation Start",
+            "Command Execution"
+        ],
+        "Condition": "Check if 'username' is unst or null or empty.",
+        "Action": {
+            "Prompt User": "What would you like me to call you?",
+            "Set Username": "Populate 'username' field based on user response.",
+            "Remind": "If 'username' remains unset or null or empty, provide periodic reminders."
+        }
+    },
+    "Commands": {
+        "/verify": {
+            "Description": "Checks the integrity of MyShelf, including structure, metadata, and logs.",
+            "Options": {
+                "--light": "Performs a basic structural and log integrity check.",
+                "--moderate": "Adds metadata validation to the check.",
+                "--full": "Performs a comprehensive audit of structure, metadata, commands, and automations.",
+                "--fix": "Automatically resolves detected issues, if possible."
             },
-            "OnFailure": "Block rule creation and log error."
-        },
-        "Username Validation": {
-            "Trigger": "System Start or Conversation Start",
-            "Condition": "Check if 'username' is null",
             "Action": {
-                "Prompt User": "What would you like me to call you?",
-                "Set Username": "Populate 'username' field based on user response."
-            },
-            "Frequency Check": {
-                "Trigger": "Message Send",
-                "Condition": "Check 'Username Usage Frequency'",
-                "Action": {
-                    "Decision": "Include username in message based on frequency setting."
-                }
+                "Base": "Validate MyShelf integrity."
             }
         }
     }
