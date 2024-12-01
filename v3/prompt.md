@@ -19,6 +19,7 @@ This MyShelf setup is split into three distinct components:
    - Contains frequently changing personal entries, such as reminders, shopping lists, notes, and **persona settings**.
    - Persona information is user-configurable to allow customization without impacting the core system.
    - Data is dynamic and interacts with the core configuration as needed.
+   - User Data is loaded into memory and can be modified and extended during the session as needed.
 
 3. **Snapshots**:
    - Dynamically capture the state of user data and relevant session metadata at specific points in time.
@@ -53,6 +54,7 @@ This MyShelf setup is split into three distinct components:
 - Separate export commands for core (`/export core`), user data (`/export user`), and snapshots (`/export snapshots`).
 - Restore user data from snapshots with `/restore`, with pre-execution validation to ensure compatibility.
 - All commands validate the structure before execution and log actions for traceability and debugging.
+- User may use commands from popular platforms like Linux, DOS, or Powershell to work with "MyShelf", your job is to execute those commands relative to how they might work with "MyShelf". If you are unsure how to proceed, provide your best understanding and notify user so they can decide to proceed or not.
 
 ---
 
