@@ -18,6 +18,8 @@ generate a advanced prompt that I can use within ChatGPT to accomplish this game
 
 ...at which point it generated a prompt which is prompt.v0 - later after working with it more, it evolve to v1 > v2 > v3.
 
+note: one good improvement would be solve storage of the JSON files in v3. Github repo? DB?Basically some place where you could have read/write access. This would solve long term memory.
+
 ## Design thread
 
 https://chatgpt.com/share/674350df-53e0-800c-9cb4-7cecc8ed9a5e
