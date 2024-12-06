@@ -1,3 +1,9 @@
+# NEWS
+
+* I have successfully implemented this v3 solution into a custom GPT. The core.json file is attached to the custom GPT and remains immutable. If it needs updating, you would need to do so externally and then uploaded to replace the previously attached core.json. The data.json is stored in a private git repository which I have an action that allows me to pull from the repo and into the custom GPT session. The update of the data.json within the private git repository works when in test mode (setting up the custom GPT) but in normal mode it does not - keeps barking about a disabled jit plugin ???
+* I added a SHA entry under the Metadata Tracking with some automation to populate that value automatically as it is needed when pushing changes back.
+* Due to the issues, currently any changes apply in my session only impact the current session. I would need to apply those changes manually to the git repo. The upside is that I can successfully retrieve my stored data.json file from the git repo. It's a start. 
+
 # INSTRUCTIONS
 
 * Copy the prompt markdown content and add as the prompt. Send it but don't do anything else.
